@@ -20,18 +20,17 @@
         <td th:text="${user.salary}"></td>
         <td th:text="${user.email}"></td>
         <td>
-            <a th:href="@{/edit(id=${user.id})}">
+            <a th:href="@{/edit(id=${user.getId()})}">
                 <button type="submit">Edit</button>
             </a>
-            <form th:action="@{/delete(id=${user.id})}" th:object="${user}">
-                <input type="hidden" name="id" th:value="${user.id}">
+            <form th:method="DELETE" th:action="@{/delete(id=${user.getId()})}">
                 <button type="submit">Delete</button>
             </form>
         </td>
     </tr>
 </table>
 <form th:action="@{/add}">
-    <input type="submit" value="Add new user"/>
+    <button type="submit">Add new user</button>
 </form>
 </body>
 </html>
